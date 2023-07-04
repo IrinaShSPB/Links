@@ -1,0 +1,672 @@
+{
+	"info": {
+		"_postman_id": "717fdba0-bf22-445a-9c37-b1a78d3e8359",
+		"name": "SWAPI_Planets_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27407874"
+	},
+	"item": [
+		{
+			"name": "wookiee",
+			"item": [
+				{
+					"name": "all_planets_OK_200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://swapi.dev/api/planets/?format=wookiee",
+							"protocol": "https",
+							"host": [
+								"swapi",
+								"dev"
+							],
+							"path": [
+								"api",
+								"planets",
+								""
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "wookiee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific_planet_45_OK_200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://swapi.dev/api/planets/45/?format=wookiee",
+							"protocol": "https",
+							"host": [
+								"swapi",
+								"dev"
+							],
+							"path": [
+								"api",
+								"planets",
+								"45",
+								""
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "wookiee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search_planet_Iridonia_OK_200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://swapi.dev/api/planets/?format=wookiee&search=Iridonia",
+							"protocol": "https",
+							"host": [
+								"swapi",
+								"dev"
+							],
+							"path": [
+								"api",
+								"planets",
+								""
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "wookiee"
+								},
+								{
+									"key": "search",
+									"value": "Iridonia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search_planet_notFound_OK_200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://swapi.dev/api/planets/?format=wookiee&search=Earth",
+							"protocol": "https",
+							"host": [
+								"swapi",
+								"dev"
+							],
+							"path": [
+								"api",
+								"planets",
+								""
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "wookiee"
+								},
+								{
+									"key": "search",
+									"value": "Earth"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JSON",
+			"item": [
+				{
+					"name": "all the planets resources",
+					"item": [
+						{
+							"name": "all_planets_OK_200",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all_planets_wrongMethod_405",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "specific planets resource",
+					"item": [
+						{
+							"name": "specific_planet_first_200",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/1/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specific_planet_last_200",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/60/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"60",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specific_planet_outOfList_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/61/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"61",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specific_planet_0_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/0/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"0",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specific_planet_letter_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/a/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"a",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specific_planet_spec_404",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/)/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										")",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specific_planet_wrongMethod_405",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 405\", function () {\r",
+											"    pm.response.to.have.status(405);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/2/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"2",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "view the JSON schema",
+					"item": [
+						{
+							"name": "planets_json_schema_404",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/schema/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"schema",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "planets_json_schema_200",
+							"request": {
+								"method": "OPTIONS",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/schema/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"schema",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "planets_json_schema_405",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/schema/",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										"schema",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "search",
+					"item": [
+						{
+							"name": "search_planet_OK_200",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/?search=Iridonia",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Iridonia"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search_planet_case_OK_200",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/?search=iriDoniA",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "iriDoniA"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search_planet_notExists_200",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/?search=Earth",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Earth"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search_planet_numbers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/?search=111",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "111"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search_planet_spec",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/?search=$",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "$"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search_planet_wrongMethod_405",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://swapi.dev/api/planets/?search=Iridonia",
+									"protocol": "https",
+									"host": [
+										"swapi",
+										"dev"
+									],
+									"path": [
+										"api",
+										"planets",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Iridonia"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
